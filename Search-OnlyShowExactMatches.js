@@ -1,6 +1,6 @@
 console.log('🔍', 'Loading all results');
 var primaryResultsContainer = _.first(document.getElementsByClassName('primary-results-container'));
-var xpath = `//div[contains(@class, 'paged-table-message')]/span[contains(@class, 'aui-iconfont-success')]`;
+var xpath = `//div[contains(@class, 'paged-table-message')]/span[contains(@class, 'aui-iconfont-check')]`;
 var waiter = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
 while (!waiter.iterateNext())
 {
