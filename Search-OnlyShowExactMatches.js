@@ -31,7 +31,7 @@ while (ems.length > 0)
 var matches = [];
 var nonMatches = [];
 var q = _.first(document.getElementsByClassName('search-query')).value;
-var rq = new RegExp(q, 'i');
+var rq = new RegExp(q, 'ig');
 _.each(document.getElementsByTagName('code'), (c) =>
 {
 	if (rq.test(c.innerHTML))
@@ -41,7 +41,7 @@ _.each(document.getElementsByTagName('code'), (c) =>
 });
 
 console.log('🔍', 'Highlighting real matches');
-_.each(matches, (c) => { c.innerHTML = c.innerHTML.replace(q, `<em>${q}</em>`); });
+_.each(matches, (c) => { c.innerHTML = c.innerHTML.replace(rq, '<em>$&</em>'); });
 
 console.log('🔍', 'Removing non-matches');
 _.each(nonMatches, (c) => { c.remove(); });
